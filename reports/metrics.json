@@ -1,0 +1,305 @@
+{
+ "parts": 2509,
+ "dropped_incomplete": 165,
+ "patterns": {
+  "intermittent": 2187,
+  "lumpy": 287,
+  "no demand": 16,
+  "smooth": 15,
+  "erratic": 4
+ },
+ "periods": {
+  "validation": [
+   "2000-04-01",
+   "2001-03-01"
+  ],
+  "test": [
+   "2001-04-01",
+   "2002-03-01"
+  ]
+ },
+ "assumptions": {
+  "lead_time_months": 1,
+  "review_months": 1,
+  "holding_cost_per_unit_month": 0.020833333333333332,
+  "backorder_cost_per_unit_month": 1.0
+ },
+ "forecast_accuracy_test": {
+  "zero": {
+   "scaled_mae": 1.268640621394729,
+   "scaled_bias": -1.268640621394729,
+   "rmsse": 0.7208147812523674
+  },
+  "naive": {
+   "scaled_mae": 1.9438977363561445,
+   "scaled_bias": 0.0007556205699103148,
+   "rmsse": 0.8951082267632189
+  },
+  "moving average (12 m)": {
+   "scaled_mae": 1.7930305363404333,
+   "scaled_bias": -0.0836639158894431,
+   "rmsse": 0.690438287165825
+  },
+  "exponential smoothing": {
+   "scaled_mae": 1.7950999915001336,
+   "scaled_bias": -0.11176118360152218,
+   "rmsse": 0.6867151628605176
+  },
+  "Croston": {
+   "scaled_mae": 2.0543026722668634,
+   "scaled_bias": -0.09450386377611535,
+   "rmsse": 0.7925906855361476
+  },
+  "SBA": {
+   "scaled_mae": 2.0136080599763373,
+   "scaled_bias": -0.15321070165704603,
+   "rmsse": 0.7839589010757144
+  },
+  "TSB": {
+   "scaled_mae": 1.8719209774576913,
+   "scaled_bias": -0.11945174634482453,
+   "rmsse": 0.7269373073709614
+  },
+  "XGBoost (global, Tweedie)": {
+   "scaled_mae": 2.005976343644213,
+   "scaled_bias": 0.1567450481019444,
+   "rmsse": 0.7006226889811306
+  }
+ },
+ "chosen_policies_test": {
+  "naive": {
+   "parameter": 0.85,
+   "fill_rate": 0.7074705320165657,
+   "avg_stock_per_part": 3.2680350737345556,
+   "avg_backorders_per_part": 0.21084097249900358,
+   "orders_per_part_month": 0.13750498206456754,
+   "cost_per_part_month": 0.27892503653514017,
+   "cost": 0.2789250365351401
+  },
+  "moving average (12 m)": {
+   "parameter": 0.98,
+   "fill_rate": 0.908888180949347,
+   "avg_stock_per_part": 4.054005579912316,
+   "avg_backorders_per_part": 0.059817988574465256,
+   "orders_per_part_month": 0.16414242061910456,
+   "cost_per_part_month": 0.14427643815597183,
+   "cost": 0.14427643815597183
+  },
+  "exponential smoothing": {
+   "parameter": 0.98,
+   "fill_rate": 0.9299936285441224,
+   "avg_stock_per_part": 4.296299986714494,
+   "avg_backorders_per_part": 0.04277932775342102,
+   "orders_per_part_month": 0.1603892653115451,
+   "cost_per_part_month": 0.13228557747663966,
+   "cost": 0.13228557747663966
+  },
+  "Croston": {
+   "parameter": 0.99,
+   "fill_rate": 0.9525326537113731,
+   "avg_stock_per_part": 5.729208183871396,
+   "avg_backorders_per_part": 0.029294539657233956,
+   "orders_per_part_month": 0.1620499535007307,
+   "cost_per_part_month": 0.14865304348788805,
+   "cost": 0.14865304348788805
+  },
+  "SBA": {
+   "parameter": 0.99,
+   "fill_rate": 0.9485504937878305,
+   "avg_stock_per_part": 5.612827155573269,
+   "avg_backorders_per_part": 0.03171914441344493,
+   "orders_per_part_month": 0.16347814534343033,
+   "cost_per_part_month": 0.14865304348788805,
+   "cost": 0.14865304348788802
+  },
+  "TSB": {
+   "parameter": 0.98,
+   "fill_rate": 0.934931506849315,
+   "avg_stock_per_part": 4.512255878836189,
+   "avg_backorders_per_part": 0.03959080643018467,
+   "orders_per_part_month": 0.1623156636110004,
+   "cost_per_part_month": 0.13359613723927197,
+   "cost": 0.13359613723927194
+  },
+  "XGBoost (global, Tweedie)": {
+   "parameter": 0.98,
+   "fill_rate": 0.9368429436126154,
+   "avg_stock_per_part": 4.098379168327355,
+   "avg_backorders_per_part": 0.03723262920154112,
+   "orders_per_part_month": 0.16663345290288295,
+   "cost_per_part_month": 0.12261552854169433,
+   "cost": 0.12261552854169434
+  },
+  "empirical (past 24 months)": {
+   "parameter": 0.97,
+   "fill_rate": 0.890729531697993,
+   "avg_stock_per_part": 3.584263318719277,
+   "avg_backorders_per_part": 0.06589610734688454,
+   "orders_per_part_month": 0.1870267038660821,
+   "cost_per_part_month": 0.1405682598202028,
+   "cost": 0.14056825982020282
+  },
+  "rule of thumb (k months of average demand)": {
+   "parameter": 9,
+   "fill_rate": 0.9064988849952214,
+   "avg_stock_per_part": 4.46376378371197,
+   "avg_backorders_per_part": 0.06323900624418759,
+   "orders_per_part_month": 0.1562707586023648,
+   "cost_per_part_month": 0.15623408507152028,
+   "cost": 0.1562340850715203
+  }
+ },
+ "best_method": "XGBoost (global, Tweedie)",
+ "serving_variance_inflation": 1.0532570516091035,
+ "cost_gap_vs_best_ci": {
+  "rule of thumb (k months of average demand)": {
+   "relative_cost_change": -0.21518067913564554,
+   "ci95": [
+    -0.24594211044545558,
+    -0.18671128095074122
+   ]
+  },
+  "TSB": {
+   "relative_cost_change": -0.08219256128574463,
+   "ci95": [
+    -0.10393584278657307,
+    -0.06265206909566974
+   ]
+  },
+  "exponential smoothing": {
+   "relative_cost_change": -0.07309979756979135,
+   "ci95": [
+    -0.09064610156606744,
+    -0.05708493338558715
+   ]
+  },
+  "Croston": {
+   "relative_cost_change": -0.1751562856384786,
+   "ci95": [
+    -0.20468175482543025,
+    -0.14428309384347782
+   ]
+  }
+ },
+ "sensitivity_backorder_cost": [
+  {
+   "backorder_cost": 0.25,
+   "best_method": "XGBoost (global, Tweedie)",
+   "best_cost": 0.07121307736592711,
+   "best_fill_rate": 0.8106084740363173,
+   "best_stock": 2.0563305433771757,
+   "rule_cost": 0.07553225056463397,
+   "rule_fill_rate": 0.7636189869385155,
+   "rule_stock": 1.7953367875647668,
+   "cost_saving": 0.057183165686436
+  },
+  {
+   "backorder_cost": 1.0,
+   "best_method": "XGBoost (global, Tweedie)",
+   "best_cost": 0.12261552854169434,
+   "best_fill_rate": 0.9368429436126154,
+   "best_stock": 4.098379168327355,
+   "rule_cost": 0.1562340850715203,
+   "rule_fill_rate": 0.9064988849952214,
+   "rule_stock": 4.46376378371197,
+   "cost_saving": 0.21518067913564554
+  },
+  {
+   "backorder_cost": 4.0,
+   "best_method": "XGBoost (global, Tweedie)",
+   "best_cost": 0.20600836986847348,
+   "best_fill_rate": 0.967505575023893,
+   "best_stock": 6.1450777202072535,
+   "rule_cost": 0.34472773017138303,
+   "rule_fill_rate": 0.9488690665817139,
+   "rule_stock": 9.347249900358708,
+   "cost_saving": 0.4024026736518833
+  }
+ ],
+ "frontier_test": {
+  "naive": {
+   "stock_for_85pct_fill": null,
+   "stock_for_90pct_fill": null,
+   "stock_for_95pct_fill": null
+  },
+  "moving average (12 m)": {
+   "stock_for_85pct_fill": 2.701744806990522,
+   "stock_for_90pct_fill": 3.729899694433374,
+   "stock_for_95pct_fill": null
+  },
+  "exponential smoothing": {
+   "stock_for_85pct_fill": 2.5644621672501433,
+   "stock_for_90pct_fill": 3.446512386825054,
+   "stock_for_95pct_fill": 5.309699799675417
+  },
+  "Croston": {
+   "stock_for_85pct_fill": 3.923327204858209,
+   "stock_for_90pct_fill": 4.644030546635884,
+   "stock_for_95pct_fill": 5.676890644659616
+  },
+  "SBA": {
+   "stock_for_85pct_fill": 3.91376938543631,
+   "stock_for_90pct_fill": 4.672570591600268,
+   "stock_for_95pct_fill": 5.712520748598216
+  },
+  "TSB": {
+   "stock_for_85pct_fill": 2.887310181727657,
+   "stock_for_90pct_fill": 3.6361790114571217,
+   "stock_for_95pct_fill": 5.304682948149941
+  },
+  "XGBoost (global, Tweedie)": {
+   "stock_for_85pct_fill": 2.4025377285838774,
+   "stock_for_90pct_fill": 3.1503567744821908,
+   "stock_for_95pct_fill": 4.799355652982596
+  },
+  "empirical (past 24 months)": {
+   "stock_for_85pct_fill": 2.880568113521482,
+   "stock_for_90pct_fill": null,
+   "stock_for_95pct_fill": null
+  },
+  "rule of thumb (k months of average demand)": {
+   "stock_for_85pct_fill": 2.8894399052300592,
+   "stock_for_90pct_fill": 4.282674372259866,
+   "stock_for_95pct_fill": null
+  }
+ },
+ "by_pattern_test": {
+  "XGBoost (global, Tweedie)": {
+   "intermittent": {
+    "fill_rate": 0.9338390628000768,
+    "avg_stock_per_part": 3.7637174211248285,
+    "avg_backorders_per_part": 0.036960829141899104,
+    "orders_per_part_month": 0.16274196006706296,
+    "cost_per_part_month": 0.11537160874866637,
+    "parts": 2187
+   },
+   "lumpy": {
+    "fill_rate": 0.9696476964769648,
+    "avg_stock_per_part": 6.558943089430894,
+    "avg_backorders_per_part": 0.023228803716608595,
+    "orders_per_part_month": 0.18554006968641115,
+    "cost_per_part_month": 0.15987345141308554,
+    "parts": 287
+   }
+  },
+  "rule of thumb (k months of average demand)": {
+   "intermittent": {
+    "fill_rate": 0.9094488188976378,
+    "avg_stock_per_part": 4.085086114921506,
+    "avg_backorders_per_part": 0.05925163846974547,
+    "orders_per_part_month": 0.15291114159426916,
+    "cost_per_part_month": 0.14435759919727684,
+    "parts": 2187
+   },
+   "lumpy": {
+    "fill_rate": 0.9289972899728998,
+    "avg_stock_per_part": 7.165505226480836,
+    "avg_backorders_per_part": 0.056910569105691054,
+    "orders_per_part_month": 0.1756678281068525,
+    "cost_per_part_month": 0.20619192799070848,
+    "parts": 287
+   }
+  }
+ },
+ "runtime_s": 16.9
+}
