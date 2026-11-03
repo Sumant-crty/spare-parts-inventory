@@ -108,6 +108,8 @@ docker build -t spareparts . && docker run -p 8000:8000 spareparts
 - **Parts that stop being reported** (165 series end early) are excluded, and with them some of the obsolescence the business would face.
 - **The global model's early warm-up months** are partly in-sample when estimating forecast-error variance for the validation year.
 
+See the [model card](MODEL_CARD.md) for intended use and risks.
+
 ## Author
 
 **Sumant Chakravarty** · [LinkedIn](https://www.linkedin.com/in/sumant-chakravarty-b117b539/)
