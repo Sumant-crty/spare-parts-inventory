@@ -18,7 +18,9 @@ def main() -> None:
     if target.exists():
         print("already downloaded:", target)
         return
-    with urllib.request.urlopen(urllib.request.Request(URL, headers={"User-Agent": "Mozilla/5.0"}), timeout=120) as r:
+    # Zenodo rejects generic browser user agents, so identify the client honestly
+    headers = {"User-Agent": "spare-parts-inventory/0.1 (+https://github.com/Sumant-crty/spare-parts-inventory)"}
+    with urllib.request.urlopen(urllib.request.Request(URL, headers=headers), timeout=120) as r:
         zipfile.ZipFile(io.BytesIO(r.read())).extractall(DATA)
     print("saved", target)
 
