@@ -6,6 +6,16 @@ How much of each spare part should a business keep? This project forecasts deman
 
 Data: monthly sales of car parts from January 1998 to March 2002 (Hyndman's `carparts` data, from the [Monash Time Series Forecasting Repository](https://zenodo.org/records/4656022), CC BY 4.0).
 
+## At a glance
+
+| | |
+|---|---|
+| **Business problem** | How much of each of 2,509 car spare parts to keep in stock. Too much ties up cash; too little leaves cars off the road; and demand is mostly zero. |
+| **Baseline** | A rule of thumb: keep *k* months of average demand, with *k* (9 months) chosen on the previous year. |
+| **Result** | In simulation, a policy driven by a global XGBoost forecast costs **21.5% less** (95% CI 18.7–24.6%) with a **higher fill rate** (93.7% against 90.6%), and needs 26% less stock for a 90% fill rate. |
+| **How it was evaluated** | One-month-ahead forecasts from past data only. Each policy's service target was chosen on April 2000 – March 2001 and then applied unchanged to April 2001 – March 2002. |
+| **Business impact** | **Simulation estimate, not measured savings.** Real demand history replayed through an inventory simulation, with *assumed* costs (holding 25% a year, backorders 100% of part value per month) and an assumed 1-month lead time. |
+
 ## The problem: demand that is mostly zero
 
 <img src="reports/example_parts.png" width="60%" alt="Three example parts">
